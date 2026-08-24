@@ -148,34 +148,38 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.03em;line-height:1.05}
 }
 .chip b{color:var(--ink);font-weight:700}
 
-/* ---------- CARTÃO-RESPOSTA (assinatura) ---------- */
+/* ---------- EVOLUÇÃO ATÉ O ENEM (assinatura) ---------- */
 .cartao-hero{
   background:var(--ink);border-radius:var(--r-xl);padding:30px 26px;
   box-shadow:var(--sombra-forte);position:relative;overflow:hidden;color:var(--surface);
 }
 .cartao-hero::before{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;background:var(--azul);opacity:.18;filter:blur(4px)}
-.cartao-hero-topo{display:flex;justify-content:space-between;align-items:flex-start;position:relative;margin-bottom:20px}
+.cartao-hero-topo{display:flex;justify-content:space-between;align-items:flex-start;position:relative;margin-bottom:8px}
 .cartao-hero-topo .olho{color:rgba(255,255,255,.5);margin-bottom:0}
 .cartao-hero-topo .olho::before{background:var(--lima)}
 .cartao-hero-topo .caneta{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.4);text-align:right;line-height:1.5}
 
-.linha-resposta{
-  display:grid;grid-template-columns:44px repeat(5,1fr);align-items:center;gap:10px;
-  padding:11px 0;border-top:1px dashed rgba(255,255,255,.14);position:relative;
+.grafico-evolucao{position:relative;margin:14px 0 2px}
+.grafico-evolucao svg{width:100%;height:auto;display:block;overflow:visible}
+.grafico-area{fill:url(#gradEvolucao)}
+.grafico-linha{
+  fill:none;stroke:var(--lima);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:460;stroke-dashoffset:460;animation:desenhar-linha 1.3s var(--ease) forwards;animation-delay:.15s;
 }
-.linha-resposta:first-of-type{border-top:none}
-.linha-resposta .area-cod{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.55)}
-.bolha{
-  width:26px;height:26px;border-radius:50%;border:1.6px solid rgba(255,255,255,.28);
-  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10.5px;color:rgba(255,255,255,.42);
-  justify-self:center;position:relative;
+.ponto-evolucao{fill:var(--lima);opacity:0;transform-box:fill-box;transform-origin:center;animation:aparecer-ponto .4s var(--ease) forwards}
+.ponto-final{fill:var(--laranja)}
+.ponto-anel{
+  fill:none;stroke:var(--laranja);stroke-width:2;opacity:0;
+  transform-box:fill-box;transform-origin:center;animation:pulso-anel 2s ease-out infinite;animation-delay:1.3s;
 }
-.bolha.marcada{
-  background:var(--bolha-cor,var(--lima));border-color:var(--bolha-cor,var(--lima));color:var(--ink);
-  transform:scale(0);animation:preencher .45s var(--ease) forwards;animation-delay:var(--atraso,0s);
-  font-weight:700;
-}
-@keyframes preencher{from{transform:scale(0)}60%{transform:scale(1.18)}to{transform:scale(1)}}
+@keyframes desenhar-linha{to{stroke-dashoffset:0}}
+@keyframes aparecer-ponto{from{opacity:0;transform:scale(0)}60%{transform:scale(1.35)}to{opacity:1;transform:scale(1)}}
+@keyframes pulso-anel{0%{transform:scale(1);opacity:.65}100%{transform:scale(2.4);opacity:0}}
+
+.marcos-evolucao{display:grid;grid-template-columns:repeat(5,1fr);margin-top:2px}
+.marcos-evolucao span{font-family:var(--mono);font-size:9.5px;color:rgba(255,255,255,.48);text-align:center;letter-spacing:.02em}
+.marcos-evolucao span:last-child{color:var(--laranja);font-weight:700}
+
 .cartao-hero-rodape{
   margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);
   display:flex;align-items:center;justify-content:space-between;position:relative;
@@ -512,10 +516,9 @@ footer{padding:56px 0 40px}
   .rodape-baixo{flex-direction:column;align-items:flex-start}
   .hero .container{gap:22px}
   .cartao-hero{padding:20px 16px;max-width:400px;margin-left:auto;margin-right:auto}
-  .cartao-hero-topo{margin-bottom:12px}
+  .cartao-hero-topo{margin-bottom:6px}
   .cartao-hero-topo .caneta{display:none}
-  .linha-resposta{grid-template-columns:28px repeat(5,1fr);gap:5px;padding:7px 0}
-  .bolha{width:22px;height:22px;font-size:9.5px}
+  .marcos-evolucao span{font-size:8.5px}
   .cartao-hero-rodape{margin-top:12px;padding-top:12px}
   .cartao-hero-rodape span{font-size:11.5px}
 }
@@ -525,8 +528,7 @@ footer{padding:56px 0 40px}
   .hero h2{font-size:24px}
   .hero p.lead{font-size:14px}
   .cartao-hero{padding:16px 12px}
-  .linha-resposta{grid-template-columns:22px repeat(5,1fr);gap:3px;padding:6px 0}
-  .bolha{width:19px;height:19px;font-size:0}
+  .marcos-evolucao span{font-size:7.5px}
   .cartao-hero-rodape{flex-direction:column;align-items:flex-start;gap:4px}
   .preco-por .val{font-size:36px}
   .chip{font-size:10.5px;padding:6px 10px}
@@ -602,13 +604,41 @@ footer{padding:56px 0 40px}
 
       <div class="cartao-hero">
         <div class="cartao-hero-topo">
-          <span class="olho">Cartão-resposta</span>
-          <span class="caneta">preencha<br>com cuidado</span>
+          <span class="olho">Sua evolução</span>
+          <span class="caneta">rumo ao<br>dia da prova</span>
         </div>
-        <div id="grade-cartao"></div>
+
+        <div class="grafico-evolucao">
+          <svg viewBox="0 0 340 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="gradEvolucao" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#D3E64C" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#D3E64C" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <line x1="24" y1="46" x2="316" y2="46" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <line x1="24" y1="102" x2="316" y2="102" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <path class="grafico-area" d="M24,140 Q62,128 100,112 Q136,98 172,80 Q208,64 244,48 Q280,34 316,20 L316,158 L24,158 Z"/>
+            <path class="grafico-linha" d="M24,140 Q62,128 100,112 Q136,98 172,80 Q208,64 244,48 Q280,34 316,20"/>
+            <circle class="ponto-evolucao" style="animation-delay:.35s" cx="24" cy="140" r="5"/>
+            <circle class="ponto-evolucao" style="animation-delay:.55s" cx="100" cy="112" r="5"/>
+            <circle class="ponto-evolucao" style="animation-delay:.75s" cx="172" cy="80" r="5"/>
+            <circle class="ponto-evolucao" style="animation-delay:.95s" cx="244" cy="48" r="5"/>
+            <circle class="ponto-anel" cx="316" cy="20" r="10"/>
+            <circle class="ponto-evolucao ponto-final" style="animation-delay:1.15s" cx="316" cy="20" r="7"/>
+          </svg>
+          <div class="marcos-evolucao">
+            <span>Hoje</span>
+            <span>Resumos</span>
+            <span>Flashcards</span>
+            <span>Simulados</span>
+            <span>ENEM</span>
+          </div>
+        </div>
+
         <div class="cartao-hero-rodape">
-          <span>5 áreas do exame, todas cobertas</span>
-          <strong>100% preenchido</strong>
+          <span>Prova do ENEM 2026 · 8 de novembro</span>
+          <strong>Faltam <em id="dias-enem-hero">···</em> dias</strong>
         </div>
       </div>
     </div>
@@ -1025,37 +1055,16 @@ window.addEventListener('resize', () => {
   if(window.innerWidth > 860) alternarMenu(true);
 });
 
-// ---------- Cartão-resposta animado (assinatura visual) ----------
-const AREAS_CARTAO = [
-  {cod:'LC', cor:'var(--laranja)', marcada:2},
-  {cod:'CH', cor:'var(--azul-forte)', marcada:0},
-  {cod:'CN', cor:'var(--lima-forte)', marcada:4},
-  {cod:'MT', cor:'#7C9BDB', marcada:1},
-  {cod:'RED', cor:'var(--laranja-forte)', marcada:3},
-];
-const LETRAS = ['A','B','C','D','E'];
-
-function montarCartaoHero(){
-  const alvo = document.getElementById('grade-cartao');
-  alvo.innerHTML = AREAS_CARTAO.map((linha, i) => {
-    const bolhas = LETRAS.map((letra, j) => {
-      const marcada = j === linha.marcada;
-      const atraso = (i * 0.12 + j * 0.03).toFixed(2);
-      return `<span class="bolha${marcada ? ' marcada' : ''}" style="--bolha-cor:${linha.cor};--atraso:${atraso}s">${marcada ? '' : letra}</span>`;
-    }).join('');
-    return `<div class="linha-resposta"><span class="area-cod">${linha.cod}</span>${bolhas}</div>`;
-  }).join('');
-}
-montarCartaoHero();
-
 // ---------- Contagem regressiva real até o ENEM 2026 ----------
 function atualizarContagem(){
   const alvo = new Date('2026-11-08T13:30:00-03:00');
   const agora = new Date();
   const diffMs = alvo - agora;
   const dias = Math.max(0, Math.ceil(diffMs / 86400000));
-  const el = document.getElementById('dias-enem');
-  if(el) el.textContent = dias;
+  ['dias-enem', 'dias-enem-hero'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.textContent = dias;
+  });
 }
 atualizarContagem();
 </script>
