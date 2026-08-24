@@ -446,17 +446,6 @@ footer{padding:56px 0 40px}
 .grade-stats .revela:nth-child(5){transition-delay:.2s}
 .grade-stats .revela:nth-child(6){transition-delay:.25s}
 
-/* ---------- TOAST ---------- */
-.toast{
-  position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);
-  background:var(--ink);color:var(--surface);padding:14px 22px;border-radius:99px;
-  font-size:13.5px;font-weight:600;box-shadow:var(--sombra-forte);z-index:500;
-  opacity:0;pointer-events:none;transition:opacity .25s var(--ease),transform .25s var(--ease);
-  display:flex;align-items:center;gap:10px;
-}
-.toast.on{opacity:1;transform:translate(-50%,0)}
-.toast .ponto{width:7px;height:7px;border-radius:50%;background:var(--lima)}
-
 /* ---------- RESPONSIVO ---------- */
 @media (max-width:960px){
   .hero .container{grid-template-columns:1fr;gap:28px}
@@ -575,7 +564,7 @@ footer{padding:56px 0 40px}
       <a href="#faq">Dúvidas</a>
     </nav>
     <div class="nav-cta">
-      <button class="btn btn-primario" data-cta="Cabeçalho">Quero começar</button>
+      <a class="btn btn-primario" href="https://pay.kiwify.com.br/i1IHuX9" target="_blank" rel="noopener">Quero começar</a>
     </div>
     <button class="nav-alterna" id="nav-alterna" aria-expanded="false" aria-controls="nav-movel" aria-label="Abrir menu">
       <span></span><span></span><span></span>
@@ -587,7 +576,7 @@ footer{padding:56px 0 40px}
     <a href="#bonus">Bônus</a>
     <a href="#oferta">Preço</a>
     <a href="#faq">Dúvidas</a>
-    <button class="btn btn-primario" data-cta="Menu mobile">Quero começar</button>
+    <a class="btn btn-primario" href="https://pay.kiwify.com.br/i1IHuX9" target="_blank" rel="noopener">Quero começar</a>
   </nav>
 </header>
 
@@ -600,7 +589,7 @@ footer{padding:56px 0 40px}
         <h2>O método que me aprovou em Odontologia pela UFSM, agora é seu.</h2>
         <p class="lead">Sou a Alexia. Construí o Código Alfa organizando meses de resumo, post-it e flashcard num sistema só, e é essa mesma trilha, testada e aprovada, que você recebe pronta: resumos direto ao ponto, flashcards, cronograma e a redação explicada do zero.</p>
         <div class="hero-cta">
-          <button class="btn btn-primario" data-cta="Hero">Quero garantir minha vaga</button>
+          <a class="btn btn-primario" href="https://pay.kiwify.com.br/i1IHuX9" target="_blank" rel="noopener">Quero garantir minha vaga</a>
           <a href="#quem-criou" class="link-ancora">Ver como eu estudei ↓</a>
         </div>
         <div class="chips">
@@ -855,10 +844,10 @@ footer{padding:56px 0 40px}
             </div>
           </div>
 
-          <button class="btn btn-bonus" data-cta="Bônus">
+          <a class="btn btn-bonus" href="https://pay.kiwify.com.br/i1IHuX9" target="_blank" rel="noopener">
             <span>Quero garantir meu bônus</span>
             <span class="btn-bonus-marca"><span class="m1"></span><span class="m2"></span><span class="m3"></span></span>
-          </button>
+          </a>
           <p class="bonus-nota">Bônus disponível só pra quem entrar antes da prova de novembro.</p>
         </div>
 
@@ -903,14 +892,14 @@ footer{padding:56px 0 40px}
           </ul>
         </div>
         <div class="oferta-preco">
-          <span class="preco-de">de R$ 97,00</span>
+          <span class="preco-de">de R$ 199,00</span>
           <div class="preco-por">
             <span class="moeda">R$</span>
-            <span class="val">49</span>
-            <span class="moeda">,90</span>
+            <span class="val">119</span>
+            <span class="moeda">,00</span>
           </div>
           <p class="preco-parcelas">pagamento único, acesso liberado na hora</p>
-          <button class="btn btn-lima" data-cta="Oferta">Quero garantir minha vaga</button>
+          <a class="btn btn-lima" href="https://pay.kiwify.com.br/i1IHuX9" target="_blank" rel="noopener">Quero garantir minha vaga</a>
           <div class="garantia">
             <span class="selo">🛡</span>
             <span>7 dias de garantia incondicional. Não fez sentido pra você? Devolvemos o valor.</span>
@@ -950,7 +939,7 @@ footer{padding:56px 0 40px}
         </details>
         <details>
           <summary>Quais as formas de pagamento? <span class="mais"></span></summary>
-          <p>Cartão de crédito, Pix ou boleto, em pagamento único de R$ 49,90. As opções completas aparecem na finalização da compra.</p>
+          <p>Cartão de crédito, Pix ou boleto, em pagamento único de R$ 119,00. As opções completas aparecem na finalização da compra.</p>
         </details>
       </div>
     </div>
@@ -962,7 +951,7 @@ footer{padding:56px 0 40px}
       <span class="olho">Faltam poucos meses</span>
       <h3>O método que funcionou pra mim está pronto pra você.</h3>
       <p>Comece hoje com a trilha que eu queria ter tido: resumos, flashcards, cronograma, redação e método, tudo num só lugar.</p>
-      <button class="btn btn-claro" data-cta="CTA final">Quero garantir minha vaga</button>
+      <a class="btn btn-claro" href="https://pay.kiwify.com.br/i1IHuX9" target="_blank" rel="noopener">Quero garantir minha vaga</a>
     </div>
   </section>
 </main>
@@ -991,8 +980,6 @@ footer{padding:56px 0 40px}
     </div>
   </div>
 </footer>
-
-<div class="toast" id="toast"><span class="ponto"></span><span id="toast-texto"></span></div>
 
 <script>
 // ---------- Revelação suave ao rolar ----------
@@ -1080,22 +1067,6 @@ function atualizarContagem(){
   if(el) el.textContent = dias;
 }
 atualizarContagem();
-
-// ---------- Toast para os CTAs (sem link definido ainda) ----------
-let toastTimeout;
-function mostrarToast(msg){
-  const toast = document.getElementById('toast');
-  const texto = document.getElementById('toast-texto');
-  texto.textContent = msg;
-  toast.classList.add('on');
-  clearTimeout(toastTimeout);
-  toastTimeout = setTimeout(() => toast.classList.remove('on'), 3200);
-}
-document.querySelectorAll('[data-cta]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    mostrarToast('Inscrições ainda não abriram por aqui. Volte em breve.');
-  });
-});
 </script>
 </body>
 </html>
